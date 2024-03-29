@@ -6,8 +6,10 @@ import { IoCall } from "react-icons/io5";
 import { SiFoodpanda } from "react-icons/si";
 import { GiShoppingBag } from "react-icons/gi";
 import FUDO from "../assets/FUDO.svg"
+import { useState } from "react";
 
 const Header = () =>{
+   const [btnName, setBtnName] = useState("Login");
     return(
         <div className="sticky w-full top-0 bg-white z-20 py-4 border-b shadow-sm border-gray-100 text-xl ">
         <div className="container-max flex justify-between items-center">
@@ -60,7 +62,11 @@ const Header = () =>{
                 </li>
                 <li>
                     <button className="bg-orange-400 px-2 py-1 rounded-md text-white my-auto item-center"
-                    >Login</button>
+                    onClick={()=>{
+                        (btnName==="Login")?
+                        setBtnName("Logout"): setBtnName("Login")
+                    }}
+                    >{btnName}</button>
                 </li>
                 
             </ul>
